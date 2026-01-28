@@ -1,0 +1,9 @@
+# Design Decisions
+The original implementation placed all responsibilities (API handling, embedding logic, document storage, and RAG workflow) into a single file with global state and tight coupling. In the refactored version, I reorganized the code into clear, well-defined modules following object-oriented and clean architecture principles.
+I separated the application into distinct layers: the API layer (`api.py`) handles HTTP concerns only, the business logic layer (`workflow.py`) encapsulates the RAG workflow, and the data access layer (`storage.py`) abstracts document storage behind a common interface. Embedding logic is encapsulated in its own service (`embeddings.py`), allowing it to be replaced without affecting other parts of the system. The `main.py` file acts as the composition root, wiring dependencies together explicitly.
+
+# Trade-off Considered
+One trade-off was introducing additional files and abstractions (such as an abstract `DocumentStore`) for a relatively small application. While this increases the initial complexity and file count, it significantly improves clarity, extensibility, and testability. Given that the goal of this exercise is to evaluate code quality and maintainability rather than minimal code size, I considered this trade-off acceptable and beneficial.
+
+# Maintainability Improvements
+This refactor improves maintainability by eliminating global state and making dependencies explicit through constructor injection. Each component can now be tested in isolation by substituting implementations (for example, using an in-memory document store instead of Qdrant). Responsibilities are clearly separated, naming is explicit, and the control flow is easy to follow, making the system easier to reason about, modify, and extend in a production setting.
