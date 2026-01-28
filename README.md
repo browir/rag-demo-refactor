@@ -5,18 +5,21 @@ The purpose of this project is to demonstrate clean code structure, separation o
 
 The external behavior of the application remains the same as the original implementation, while the internal design has been improved for readability, maintainability, and testability.
 
-#  Project Structure
-├── app/
-│ ├── init.py
-│ ├── main.py # Application entrypoint and dependency wiring
-│ ├── api.py # FastAPI routes (HTTP layer)
-│ ├── workflow.py # RAG business logic
-│ ├── embeddings.py # Embedding service
-│ ├── storage.py # Document storage abstractions and implementations
-│ └── models.py # Request schemas
-├── notes.md # Design decisions and trade-offs
-└── README.md
+## Project Structure
 
+```text
+.
+├── app/
+│   ├── __init__.py
+│   ├── main.py          # Application entrypoint and dependency wiring
+│   ├── api.py           # FastAPI routes (HTTP layer)
+│   ├── workflow.py      # RAG business logic
+│   ├── embeddings.py    # Embedding service
+│   ├── storage.py       # Document storage abstractions and implementations
+│   └── models.py        # Request schemas
+├── notes.md             # Design decisions and trade-offs
+└── README.md
+```
 
 # Requirements
 
