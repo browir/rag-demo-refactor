@@ -33,8 +33,8 @@ If Qdrant is not available, the application will automatically fall back to an i
 
 1. Clone the repository:
 `
-git clone https://github.com/browir/rag-demo-refactor.git
-cd rag-demo-refactor`
+git clone https://github.com/browir/rag-demo-refactor.git`
+`cd rag-demo-refactor`
 
 2. Install Dependencies:
 ` pip install fastapi uvicorn qdrant-client langgraph `
